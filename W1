@@ -1,0 +1,57 @@
+# task 1
+nums = input()
+sum = 0.0
+for num in nums:
+    sum = sum + float(num)
+print(sum)
+
+# task 2
+import random
+num = random.randint(0, 100)
+while True:
+    ans = input("Ответ:" )
+    if ans == "":
+        print("Выход из программы")
+        break;
+    if not ans.isdigit():
+        print("Некорректный формат ответа")
+        continue;
+    ans = int(ans)
+    if ans == num:
+        print("Верный ответ!")
+        break;
+    elif ans > num:
+        print("Заданное число меньше")
+    else:
+        print("Заданное число больше")
+   
+# task 3 
+def disc(a, b, c):
+    d = b ** 2 - 4*a*c
+    if d > 0:
+        d = d ** 1/2
+        x1 = (-b - d) / 2 * a
+        x2 = (-b + d) / 2 * a
+        return x1, x2
+    if d == 0:
+        x = -b / 2 * a
+        return x
+    if d < 0:
+        print("Вещественных корней нет!")
+
+
+def viett(a, b, c):
+    return disc(a, b, c)
+
+
+a = int(input("Введите первый коэффициент: "))
+b = int(input("Введите второй коэффициент: "))
+c = int(input("Введите третий коэффициент: "))
+print("Выберите метод решения: 1 - Виетт, 2 - Дискриминант")
+ans = int(input())
+if ans == 1:
+    print(viett(a, b, c))
+elif ans == 2:
+    print(disc(a, b, c))
+else:
+    print("Выбрано некорректное число")
